@@ -1,0 +1,7 @@
+program MathsWrong is
+
+vari$able value : int@eger;
+variable tmp : integer;
+variable out : bool;
+
+procedure Fib : integer(variable val : integer)
