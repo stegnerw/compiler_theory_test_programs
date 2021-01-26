@@ -1,5 +1,5 @@
 # Steps to contribute to the repo
-Please follow our guidlines if you wish to contribute to this repo.
+*Please* follow our guidelines if you wish to contribute to this repo.
 
 1. **Create an issue detailing the changes you wish to make.** This can be as simple as describing the file(s) you want to add, or the changes you wish to make to file(s).
 	1. Descriptions aren't needed in simple issues, but more documentation is always prefered and appriciated.
