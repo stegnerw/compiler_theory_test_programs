@@ -1,2 +1,2 @@
-Stegner, Wayne <stegnerw>
-King, Bayley <king2b3>
+- Stegner, Wayne <[stegnerw](https://github.com/stegnerw)>
+- King, Bayley <[king2b3](https://github.com/king2b3)>
