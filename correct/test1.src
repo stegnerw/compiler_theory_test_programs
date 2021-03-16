@@ -2,6 +2,9 @@
 	/* nested comments; can you do it??
 	*/*/
 
+/*/ This should only open the block comment
+*/
+
 PROGRAM grant IS
     global variable JAKE : integer;
     global variable ryan : integer[3];
