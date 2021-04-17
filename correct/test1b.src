@@ -37,4 +37,4 @@ PROGRAM grant IS
 	begin
 		tmp := if_proc();
 		tmp := for_proc();
-end program
+end program.
