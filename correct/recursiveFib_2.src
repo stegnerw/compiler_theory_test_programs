@@ -9,7 +9,7 @@ procedure Fib : integer(variable val :integer)
 
 	procedure Sub : integer(variable val1 : integer)
 		begin
-			return val1 - 1;
+			return val - 1;
 		end procedure;
 
 	begin
