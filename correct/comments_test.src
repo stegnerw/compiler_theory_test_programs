@@ -5,6 +5,9 @@
 /*/ This should only open the block comment
 bababooey*/
 
+/* Test a //single line comment
+in a block comment*/
+
 PROGRAM comment_test IS
     global /*can you do this?*/ variable TEST : integer;
 

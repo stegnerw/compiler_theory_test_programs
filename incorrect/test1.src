@@ -28,3 +28,5 @@ PROGRAM grant IS
 		tmp := if_proc();
 		tmp := for_proc();
 end program.
+/* What happens if I don't close this comment?
+Just a warning or an error?
