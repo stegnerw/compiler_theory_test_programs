@@ -9,7 +9,7 @@ program type_checking is
 	variable str_1 : string;
 	variable str_2 : string;
 
-	procedure test_proc : int(
+	procedure test_proc : integer(
 		variable a : integer,
 		variable b : float,
 		variable c : bool,
