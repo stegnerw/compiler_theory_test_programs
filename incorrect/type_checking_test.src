@@ -1,0 +1,94 @@
+program type_checking is
+	// 2 of each type just for testing fun
+	variable int_1 : integer;
+	variable int_2 : integer;
+	variable flt_1 : float;
+	variable flt_2 : float;
+	variable bool_1 : bool;
+	variable bool_2 : bool;
+	variable str_1 : string;
+	variable str_2 : string;
+
+	procedure test_proc : integer(
+		variable a : integer,
+		variable b : float,
+		variable c : bool,
+		variable d : string
+	)
+	begin
+		// Do stuff and things
+		return 1337;
+	end procedure;
+
+begin
+	// Correct literal assignments (for later testing)
+	int_2 := 42;
+	flt_2 := 1.5;
+	bool_2 := false;
+	str_2 := "test string";
+
+	// Incorrect literal assignments
+	int_1 := "test string";
+	flt_1 := true;
+	flt_1 := "test string";
+	bool_1 := 1.5;
+	bool_1 := "test string";
+	str_1 := 1;
+	str_1 := 1.5;
+	str_1 := true;
+
+	// Inmpatible assignments from other variables
+	int_1 := str_2;
+	flt_1 := bool_2;
+	flt_1 := str_2;
+	bool_1 := flt_2;
+	bool_1 := str_2;
+	str_1 := int_2;
+	str_1 := flt_2;
+	str_1 := bool_2;
+
+	// Some invalid arithmetic
+	int_1 := (1.5 + true) * sqrt(23) / "test string";
+	bool_1 := (str_2 - 5) / (bool_2 * (not flt_2 + 3));
+
+	// Mix in some invalid bitwise junk
+	int_1 := 3 & 1.5 | bool_2 & str_2;
+
+	// Invalid relationals
+	bool_1 := bool_2 < flt_2;
+	bool_1 := "test" >= -flt_2;
+
+	// String relations
+	bool_1 := "string test" <= str_2;
+	bool_1 := "asdfawgrzsd" > str_2;
+
+	// If statement expression
+	if ("test string") then
+		// Do something
+	else
+		// Do another thing
+	end if;
+
+	// For statement expression
+	for (int_1 := 16; "test string")
+		int_1 := int_1 - 2;
+	end for;
+
+	// Incorrect parameter types
+	int_1 := test_proc(
+		"test string",  // Can't pass string to int
+		true,  // Can't pass bool to float
+		1.5,  // Can't pass float to bool
+		1  // Can't pass int to string
+	);
+
+	// Not enough parameters
+	int_1 := test_proc(1, 1.5);  // Missing two arguments
+
+	// Too many parameters
+	int_1 := test_proc(
+		1, 1.5, true, "test string",
+		"extra parameter"  // This should cause an error
+	);
+
+end program .
