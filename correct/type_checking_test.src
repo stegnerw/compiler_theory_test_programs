@@ -1,0 +1,78 @@
+program type_checking is
+	// 2 of each type just for testing fun
+	variable int_1 : integer;
+	variable int_2 : integer;
+	variable flt_1 : float;
+	variable flt_2 : float;
+	variable bool_1 : bool;
+	variable bool_2 : bool;
+	variable str_1 : string;
+	variable str_2 : string;
+
+	procedure test_proc : int(
+		variable a : integer,
+		variable b : float,
+		variable c : bool,
+		variable d : string
+	)
+	begin
+		// Do stuff and things
+		return 1337;
+	end procedure;
+
+begin
+	// Literal assignments
+	int_1 := 42;
+	flt_1 := 1.5;
+	bool_1 := false;
+	bool_1 := true;
+	str_1 := "test string";
+
+	// Assignments from other variables
+	int_2 := int_1;
+	flt_2 := flt_1;
+	bool_2 := bool_1;
+	str_2 := str_1;
+
+	// Compatible assignments
+	int_1 := flt_1;
+	int_1 := bool_1;
+	flt_1 := int_1;
+	bool_1 := int_1;
+
+	// Some arithmetic (only int and float)
+	int_1 := (1 + int_2) * sqrt(23) / flt_2;
+
+	// Why not throw in a function to test returns?
+	flt_1 := (flt_2 - 5) / (4 * (not 2 + 3))
+			+ test_proc(int_2, flt_2, bool_2, str_2);
+
+	// Mix in some bitwise junk
+	int_1 := 3 & 7 | (8 + 12);
+	bool_1 := true & not true & false | not true;
+
+	// Relational with int/float
+	bool_1 := -5 < flt_2;
+	bool_1 := 12 * 2 >= -flt_2;
+
+	// Relational with int/bool
+	bool_1 := int_2 == true;
+	bool_1 := int_2 <= bool_2;
+
+	// String relations
+	bool_1 := "string test" == str_2;
+	bool_1 := "asdfawgrzsd" != str_2;
+
+	// If statement expression
+	if ((12 - 2) > 3.5) then
+		// Do something
+	else
+		// Do another thing
+	end if
+
+	// For statement expression
+	for (int_1 := 16; i > 2)
+		int_1 := int_1 - 2;
+	end for
+
+end program .
