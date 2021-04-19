@@ -68,11 +68,11 @@ begin
 		// Do something
 	else
 		// Do another thing
-	end if
+	end if;
 
 	// For statement expression
-	for (int_1 := 16; i > 2)
+	for (int_1 := 16; int_1 > 2)
 		int_1 := int_1 - 2;
-	end for
+	end for;
 
 end program .
