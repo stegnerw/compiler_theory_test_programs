@@ -49,7 +49,7 @@ begin
 
 	// Mix in some bitwise junk
 	int_1 := 3 & 7 | (8 + 12);
-	bool_1 := true & (not true) & false | (not true);
+	bool_1 := not true & (not true) & bool_2 | (not true);
 
 	// Relational with int/float
 	bool_1 := -5 < flt_2;
