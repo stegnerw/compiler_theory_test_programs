@@ -1,0 +1,43 @@
+program array_size_checking is
+
+variable x : integer[5];
+variable y : integer[6];
+variable z : float[5];
+variable a : float[6];
+variable i : integer;
+
+procedure Fib : integer(variable val : integer[6])
+		variable tmp :integer[5];
+		variable i : integer;
+	begin
+
+	// Initialize tmp array
+	for (i := 0; i < 5)
+		tmp[i] := i * 2;
+	end for;
+
+	// Adding two entire arrays
+	val := val + tmp;  // Size mismatch
+	return val[0];
+end procedure;
+
+
+begin
+
+// Initialize the arrays (will fail at runtime due to array bounds)
+for(i := 0; i < 6)
+	x[i] := i;
+	y[i] := 5 - i;
+	z[i] := 1.5 * i;
+	a[i] := 2;
+end for;
+
+// Test calling function with array parameter
+x[5] := Fib(x);  // Should fail because argument mismatch and index too high
+
+// Test scalar operations on arrays
+x := y * 2;
+y := not x;
+x := 5 & (y - 2);
+
+end program.
